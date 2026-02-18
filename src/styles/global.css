@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Noto+Sans+TC:wght@400;700&display=swap');
+
+:root {
+  --bg-color: #202020;
+  --text-color: #f0f0f0;
+  --primary-color: #ffcc00;
+  --secondary-color: #ff0055;
+  --accent-color: #00ccff;
+  --pixel-border: 4px solid #000;
+  --pixel-shadow: 4px 4px 0px #000;
+}
+
+body {
+  font-family: 'VT323', 'Noto Sans TC', monospace;
+  font-size: 24px;
+  /* VT323 is smaller than Press Start, so we bump up the size */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  padding: 10px;
+  /* Prevent edge touching on mobile */
+  box-sizing: border-box;
+}
+
+.pixel-container {
+  border: var(--pixel-border);
+  box-shadow: var(--pixel-shadow);
+  padding: 20px;
+  background-color: #303030;
+  width: 600px;
+  /* Force fixed width on desktop */
+  max-width: 100%;
+  /* Responsive cap */
+  box-sizing: border-box;
+  /* Ensure padding doesn't overflow width */
+}
+
+.pixel-btn {
+  font-family: 'VT323', 'Noto Sans TC', monospace;
+  background-color: var(--primary-color);
+  border: var(--pixel-border);
+  box-shadow: var(--pixel-shadow);
+  color: #000;
+  padding: 15px 20px;
+  /* Larger touch target */
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: transform 0.1s;
+  width: 100%;
+  /* Full width buttons on mobile usually better for thumb */
+  box-sizing: border-box;
+}
+
+.pixel-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000;
+}
+
+.pixel-input {
+  font-family: 'VT323', 'Noto Sans TC', monospace;
+  border: var(--pixel-border);
+  box-shadow: var(--pixel-shadow);
+  padding: 15px;
+  font-size: 16px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: #eee;
+  color: #000;
+  /* Ensure text is visible */
+  box-sizing: border-box;
+}
+
+.question-text {
+  font-size: 18px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  /* Prevent long words breaking layout */
+}
+
+.option-btn {
+  display: block;
+  width: 100%;
+  margin: 15px 0;
+  /* More spacing */
+  background-color: #fff;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.option-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* Responsiveness */
+@media (max-width: 600px) {
+  :root {
+    --pixel-border: 4px solid #000;
+    /* Keep thick border or reduce? Keep for style */
+  }
+
+  body {
+    padding: 5px;
+  }
+
+  .pixel-container {
+    padding: 15px;
+    border-width: 4px;
+    box-shadow: 4px 4px 0px #000;
+  }
+
+  .question-text {
+    font-size: 14px;
+    /* Smaller text on mobile */
+  }
+
+  .pixel-btn,
+  .pixel-input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  h1 {
+    font-size: 20px;
+    /* Scale down title */
+  }
+}
